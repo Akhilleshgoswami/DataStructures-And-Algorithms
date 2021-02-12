@@ -35,3 +35,62 @@ public:
         findCombination(0, target, candidates, ans, ds); 
         return ans; 
     }
+
+
+
+combination 2 problem
+ vector<vector<int>> ans;
+//STORE THE FINAL RESULT
+
+void solve(int cI, int sum, const vector<int>& candidates, vector<int>& vec){
+    if(sum < 0){return;} 
+    if(cI == candidates.size()){
+        if(sum == 0){
+            ans.push_back(vec);
+        }
+        return;
+    }
+    if(sum == 0){
+        ans.push_back(vec);
+        return;
+    }
+    for(int i = cI; i < candidates.size(); i++){
+        if(i > cI && candidates[i] == candidates[i-1]){continue;}
+        vec.push_back(candidates[i]);
+        solve(i+1, sum - candidates[i], candidates, vec);
+        vec.pop_back();
+    }
+    
+}
+
+vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+    ans.reserve(100);
+
+	vector<int> cd = candidates;		
+    sort(cd.begin(), cd.end());
+          
+    vector<int> vec; vec.reserve(100);
+    
+	solve(0, target, cd, vec);
+	
+    return ans;
+}
+combinantino 3
+ vector<vector<int>> result;
+    void try_combination(vector<int>& combination, int k, int n, int start){
+        if(k == combination.size()){
+            if(n == 0) result.push_back(combination);
+            return;
+        }
+        for(int i = start; i <= 9; ++i){
+            combination.push_back(i);
+            try_combination(combination, k, n-i, i+1);
+            combination.pop_back();
+        }
+    }
+public:
+    vector<vector<int>> combinationSum3(int k, int n) {
+        vector<int> combination;
+        try_combination(combination, k, n, 1);
+        return result;
+    }
