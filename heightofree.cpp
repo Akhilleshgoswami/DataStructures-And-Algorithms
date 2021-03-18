@@ -50,7 +50,7 @@ int treeHeight(node *root)
 	} 
 } 
 
-int height(Node* node){
+int maxDepth(node* node){
 	if (node == NULL) 
 		return -1; 
 	else
@@ -85,6 +85,6 @@ int main()
 	root->left->left = newNode(4); 
 	root->left->right = newNode(5); 
 
-	cout << "Height of tree is " << treeHeight(root); 
+	cout << "Height of tree is " << maxDepth(root); 
 	return 0; 
 } 

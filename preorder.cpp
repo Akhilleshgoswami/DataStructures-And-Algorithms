@@ -119,11 +119,11 @@ int main(){
 	d->right = new Node(3);
 	d->left->right = new Node(4);
 	d->left->left = new Node(5);
-   // postorder(d);
+   postorder(d);
    // cout<<endl;
    // itprorder(d);
-	inorder(d);
-cout<<endl;
-itinorder(d);
+	// inorder(d);
+// cout<<endl;
+// itinorder(d);
 		return 0;
 	}
