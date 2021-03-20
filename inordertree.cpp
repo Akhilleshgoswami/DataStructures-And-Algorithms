@@ -56,11 +56,18 @@ void inOrder(struct Node *root)
 }
 
 int main(){
-	Node* d = new Node(1);
-	d->left = new Node(2);
-	d->right = new Node(3);
-	d->left->right = new Node(4);
-	d->left->left = new Node(5);
+	Node* d = new Node(3);
+	d->left = new Node(5);
+	d->right = new Node(1);
+  d->right->left = new Node(0);
+  d->right->right = new Node(8);
+	d->left->right = new Node(5);
+    d->left->right->right = new Node(2);
+      // d->left->right->right = new Node(4);
+        d->left->right->left = new Node(7);
+	d->left->left = new Node(6);
+  inOrder(d);
+  cout<<endl;
   print2(d);
 
 		return 0;
